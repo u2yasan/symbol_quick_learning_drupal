@@ -74,3 +74,5 @@ codebase/drupal
 codebase/.editorconfig
 codebase/.gitattributes
 codebase/web/README.md
+
+codebase/web/modules/contrib/*

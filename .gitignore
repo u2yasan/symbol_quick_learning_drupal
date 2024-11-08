@@ -3,6 +3,11 @@ mariadb-init
 postgres-init
 mutagen.yml.lock
 .vscode
+.DS_Store
+#.env
+mariadb/
+codebase/
+
 # gitignore template for Drupal 8 projects
 #
 # earlier versions of Drupal are tracked in `community/PHP/`

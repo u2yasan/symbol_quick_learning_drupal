@@ -9,9 +9,9 @@ services:
       MYSQL_USER: $DB_USER
       MYSQL_PASSWORD: $DB_PASSWORD
       MYSQL_TRANSACTION_ISOLATION: READ-COMMITTED
-#    volumes:
+    volumes:
 #      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
-#      - /path/to/mariadb/data/on/host:/var/lib/mysql # Use bind mount
+      - ./mariadb:/var/lib/mysql # Use bind mount
 
   php:
     image: wodby/drupal-php:$PHP_TAG
@@ -50,9 +50,9 @@ services:
     extra_hosts:
     - "host.docker.internal:host-gateway"
     volumes:
-    - ./:/var/www/html:cached
+#    - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - drupal:/var/www/html
+    - drupal:/var/www/html
 ## For XHProf and Xdebug profiler traces
 #    - files:/mnt/files
 
@@ -64,9 +64,9 @@ services:
       CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
     command: sudo -E crond -f -d 0
     volumes:
-    - ./:/var/www/html:cached
+#    - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - drupal:/var/www/html
+    - drupal:/var/www/html
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
@@ -81,9 +81,9 @@ services:
       NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
     #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
-    - ./:/var/www/html:cached
+#    - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - drupal:/var/www/html
+    - drupal:/var/www/html
     labels:
     - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 
@@ -281,6 +281,6 @@ services:
 
 volumes:
 ## For macOS users (Mutagen)
-#  drupal:
+  drupal:
 # For Xdebug profiler
   files:

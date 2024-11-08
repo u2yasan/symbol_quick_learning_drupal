@@ -6,7 +6,7 @@ mutagen.yml.lock
 .DS_Store
 #.env
 mariadb/
-codebase/
+#codebase/
 
 # gitignore template for Drupal 8 projects
 #
@@ -16,57 +16,61 @@ codebase/
 # https://www.drupal.org/docs/develop/using-composer
 
 # Ignore configuration files that may contain sensitive information
-/web/sites/*/*settings*.php
-/web/sites/*/*services*.yml
+codebase/web/sites/*/*settings*.php
+codebase/web/sites/*/*services*.yml
 
 # Ignore paths that may contain user-generated content
-/web/sites/*/files
-/web/sites/*/public
-/web/sites/*/private
-/web/sites/*/files-public
-/web/sites/*/files-private
+codebase/web/sites/*/files
+codebase/web/sites/*/public
+codebase/web/sites/*/private
+codebase/web/sites/*/files-public
+codebase/web/sites/*/files-private
 
 # Ignore paths that may contain temporary files
-/web/sites/*/translations
-/web/sites/*/tmp
-/web/sites/*/cache
+codebase/web/sites/*/translations
+codebase/web/sites/*/tmp
+codebase/web/sites/*/cache
 
 # Ignore drupal core (if not versioning drupal sources)
-/web/vendor
-/web/core
-/web/modules/README.txt
-/web/profiles/README.txt
-/web/sites/development.services.yml
-/web/sites/example.settings.local.php
-/web/sites/example.sites.php
-/web/sites/README.txt
-/web/themes/README.txt
-/web/.csslintrc
-/web/.editorconfig
-/web/.eslintignore
-/web/.eslintrc.json
-/web/.gitattributes
-/web/.htaccess
-/web/.ht.router.php
-/web/autoload.php
-/web/composer.json
-/web/composer.lock
-/web/example.gitignore
-/web/index.php
-/web/INSTALL.txt
-/web/LICENSE.txt
-/web/README.txt
-/web/robots.txt
-/web/update.php
-/web/web.config
+codebase/web/vendor
+codebase/web/core
+codebase/web/modules/README.txt
+codebase/web/profiles/README.txt
+codebase/web/sites/development.services.yml
+codebase/web/sites/example.settings.local.php
+codebase/web/sites/example.sites.php
+codebase/web/sites/README.txt
+codebase/web/themes/README.txt
+codebase/web/.csslintrc
+codebase/web/.editorconfig
+codebase/web/.eslintignore
+codebase/web/.eslintrc.json
+codebase/web/.gitattributes
+codebase/web/.htaccess
+codebase/web/.ht.router.php
+codebase/web/autoload.php
+codebase/web/composer.json
+codebase/web/composer.lock
+codebase/web/example.gitignore
+codebase/web/index.php
+codebase/web/INSTALL.txt
+codebase/web/LICENSE.txt
+codebase/web/README.txt
+codebase/web/robots.txt
+codebase/web/update.php
+codebase/web/web.config
 
 # Ignore vendor dependencies and scripts
-/vendor
-/composer.phar
-/composer
-/robo.phar
-/robo
-/drush.phar
-/drush
-/drupal.phar
-/drupal
+codebase/vendor
+codebase/composer.phar
+codebase/composer
+codebase/robo.phar
+codebase/robo
+codebase/drush.phar
+codebase/drush
+codebase/drupal.phar
+codebase/drupal
+
+codebase/.editorconfig
+codebase/.gitattributes
+codebase/web/README.md

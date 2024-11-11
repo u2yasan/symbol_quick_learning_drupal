@@ -1,0 +1,98 @@
+<?php
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_toolbar().
+ */
+function quicklearning_symbol_toolbar() {
+  // First, build an array of all example modules and their routes.
+  // We resort to this hard-coded way so as not to muck up each example.
+  $quicklearning_symbol = _quicklearning_symbol_toolbar_routes();
+
+  // Build a list of links for the menu.
+  $links = [];
+  foreach ($quicklearning_symbol as $module => $route) {
+
+    // Check if module is installed or not.
+    if (\Drupal::moduleHandler()->moduleExists($module)) {
+
+      // Get the module info (title, description) from Drupal.
+      $info = \Drupal::service('extension.list.module')->getExtensionInfo($module);
+
+      // If there's no info, the example isn't enabled, so don't display it.
+      if (!empty($info)) {
+        $links[$module] = [
+          'title' => Html::escape($info['name']),
+          'url' => Url::fromRoute($route),
+          'attributes' => [
+            'class' => [Html::getClass($module)],
+            'title' => Html::escape($info['description']),
+          ],
+        ];
+      }
+    }
+  }
+
+  // Add a link to enable all examples.
+  $links['enable_quicklearning_symbol'] = [
+    'title' => t('Enable Quick Learing Symbol Examples'),
+    'url' => Url::fromRoute('system.modules_list'),
+    'options' => [
+      'title' => t('Enable more examples in on the Extend page.'),
+    ],
+    'fragment' => 'edit-modules-quicklearning_symbol-modules',
+  ];
+
+  // Create the examples toolbar render array.
+  $items['quicklearning_symbol'] = [
+    '#type' => 'toolbar_item',
+    'tab' => [
+      '#type' => 'link',
+      '#title' => t('QLSymbol'),
+      '#url' => Url::fromRoute('<front>'),
+      '#attributes' => [
+        'title' => t('Quicklearing Symbol Examples'),
+        'class' => ['toolbar-icon', 'toolbar-icon-quicklearning_symbol'],
+      ],
+    ],
+    'tray' => [
+      '#heading' => t('Quicklearing Symbol Examples'),
+      'shortcuts' => [
+        '#theme' => 'links__toolbar_quicklearning_symbol',
+        '#links' => $links,
+        '#attributes' => [
+          'class' => ['toolbar-menu'],
+        ],
+      ],
+    ],
+    '#weight' => 99,
+    '#attached' => [
+      'library' => [
+        'quicklearning_symbol/quicklearning_symbol.icons',
+      ],
+    ],
+  ];
+
+  return $items;
+}
+
+/**
+ * Get a list of toolbar links for testing toolbar routes.
+ *
+ * This function returns a keyed array of toolbar routes with keys as the
+ * module name which supplies the route. For internal use only.
+ *
+ * @return string[]
+ *   Keyed array of toolbar routes.
+ *
+ * @see toolbar_menu()
+ */
+function _quicklearning_symbol_toolbar_routes() {
+  return [
+    'qls_ss3' => 'qls_ss3.description',
+    'ss4_quicklearning_symbol' => 'qls_ss4.description',
+    'block_example' => 'block_example.description',
+  ];
+}

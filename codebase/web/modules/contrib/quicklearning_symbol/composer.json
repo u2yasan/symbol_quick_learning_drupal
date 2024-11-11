@@ -1,0 +1,10 @@
+{
+    "name": "drupal/quicklearning_symbol",
+    "description": "Qucik Learning Symbol for Drupal.",
+    "type": "drupal-module",
+    "require": {
+        "symbol-blockchain-community/symbol-sdk": "^1.0",
+        "symbol-blockchain-community/symbol-rest-client": "^1.0"
+    },
+    "license": "GPL-2.0-or-later"
+}

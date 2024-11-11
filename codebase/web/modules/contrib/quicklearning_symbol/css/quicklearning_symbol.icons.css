@@ -1,0 +1,13 @@
+/**
+ * @file
+ * Styling for the quicklearning_symbol module icons.
+ */
+
+/**
+ * Toolbar tab icon.
+ */
+.toolbar-bar .toolbar-icon-quicklearning_symbol::before,
+.toolbar-bar .toolbar-icon-quicklearning_symbol:active::before,
+.toolbar-bar .toolbar-icon-quicklearning_symbol.active::before {
+  background-image: url(../images/quicklearning_symbol.logo.svg);
+}

@@ -1,0 +1,59 @@
+# This routing.yml file makes both the fapi example description page and the
+# included sample forms available at specific URL's on your site. A route
+# maps a URL path to a controller. For page controllers it defines the
+# function or method that will be called when the page is accessed.  For form
+# controllers the content is determined by the buildForm method defined by the
+# form controller implementation.
+
+# Access to these paths is restricted to users with the permission
+# 'access content'. This is notated as _permission: 'access content'.
+
+# Menu items corresponding to these URLs are defined separately in the
+# form_api_example.links.menu.yml file.
+qls_ss3.description:
+  path: '/quicklearning_symbol/qls_ss3'
+  defaults:
+    _controller: '\Drupal\qls_ss3\Controller\Page::description'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content'
+
+qls_ss3.form_one:
+  path: '/quicklearning_symbol/qls_ss3/form_one'
+  defaults:
+    _form: '\Drupal\qls_ss3\Form\FormOne'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content'
+
+qls_ss3.form_two:
+  path: '/quicklearning_symbol/qls_ss3/form_two'
+  defaults:
+    _form: '\Drupal\qls_ss3\Form\FormTwo'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content'    
+
+qls_ss3.form_three:
+  path: '/quicklearning_symbol/qls_ss3/form_three'
+  defaults:
+    _form: '\Drupal\qls_ss3\Form\FormThree'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content' 
+
+qls_ss3.form_four:
+  path: '/quicklearning_symbol/qls_ss3/form_four'
+  defaults:
+    _form: '\Drupal\qls_ss3\Form\FormFour'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content' 
+
+qls_ss3.account_info:
+  path: '/quicklearning_symbol/qls_ss3/account-info'
+  defaults:
+    _controller: '\Drupal\qls_ss3\Controller\SymbolAccountController::accountInfo'
+    _title: 'Qucik Learning Symbol Section 3 Account Information'
+  requirements:
+    _permission: 'access content'    

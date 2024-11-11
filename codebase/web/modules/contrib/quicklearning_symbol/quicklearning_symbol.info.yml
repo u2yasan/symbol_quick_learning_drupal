@@ -1,0 +1,10 @@
+name: Quick Learning Symbol Example
+type: module
+description: 'Provides example code for symbol.'
+package: Symbol Example modules
+dependencies:
+  - drupal:toolbar
+core_version_requirement: ^10.3 || ^11.0
+version: '0.0.1'
+project: 'quicklearning_symbol'
+datestamp: 1731040780

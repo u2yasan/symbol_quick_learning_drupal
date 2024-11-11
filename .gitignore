@@ -76,3 +76,4 @@ codebase/.gitattributes
 codebase/web/README.md
 
 codebase/web/modules/contrib/*
+!codebase/web/modules/contrib/quicklearning_symbol/

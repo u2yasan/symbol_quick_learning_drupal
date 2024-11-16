@@ -4,17 +4,9 @@ namespace Drupal\qls_ss3\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use SymbolSdk\Symbol\KeyPair;
-use SymbolSdk\Symbol\MessageEncoder;
-use SymbolSdk\CryptoTypes\PrivateKey;
-use SymbolRestClient\Api\AccountRoutesApi;
-use SymbolSdk\Symbol\Models\PublicKey;
-use SymbolSdk\Symbol\Address;
-use SymbolSdk\Symbol\Verifier;
 
-use SymbolRestClient\Api\NodeRoutesApi;
-use SymbolRestClient\Api\NetworkRoutesApi;
-use SymbolRestClient\Configuration;
+use SymbolSdk\CryptoTypes\PrivateKey;
+
 use SymbolSdk\Facade\SymbolFacade;
 
 /**
@@ -48,12 +40,6 @@ class FormOne extends FormBase {
       '#markup' => $this->t('3.1.1 新規生成 3.1.2 秘密鍵と公開鍵の導出 3.1.3 アドレスの導出'),
     ];
 
-    // $form['network_type'] = [
-    //   '#type' => 'textfield',
-    //   '#title' => $this->t('Network Type'),
-    //   '#description' => $this->t('testnet or mainnet'),
-    //   '#required' => TRUE,
-    // ];
     $form['network_type'] = [
       '#type' => 'radios',
       '#title' => $this->t('Network Type'),

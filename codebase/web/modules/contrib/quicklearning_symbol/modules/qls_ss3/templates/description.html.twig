@@ -43,7 +43,10 @@ Description text for Section 3.
 <h4><a href={{ qls_ss3_form_two }}>3.1.4 秘密鍵からアカウント生成</a></h4>
 <h4><a href={{ qls_ss3_form_three }}>3.1.5 公開鍵クラスの生成</a></h4>
 <h4>3.1.6 アドレスクラスの生成</h4>
-
+<code>
+$aliceAddress = new Address('TDNX2EJJKC3C4QOGURQZLQS6KJLQACTGWYZFKTQ');
+echo $aliceAddress->__tostring() . PHP_EOL;
+</code>
 <h3>3.2 アカウントへの送信</h3>
 <p>
 アカウントを作成しただけでは、ブロックチェーンにデータを送信することはできません。

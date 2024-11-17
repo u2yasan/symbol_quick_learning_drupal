@@ -6,12 +6,9 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-use SymbolSdk\Symbol\KeyPair;
 use SymbolSdk\Symbol\MessageEncoder;
 use SymbolSdk\CryptoTypes\PrivateKey;
 use SymbolSdk\CryptoTypes\PublicKey as CryptoPublicKey;
-use SymbolRestClient\Api\AccountRoutesApi;
-use SymbolSdk\Symbol\Models\PublicKey;
 use SymbolSdk\Symbol\Models\TransferTransactionV1;
 use SymbolSdk\Symbol\Models\NetworkType;
 use SymbolSdk\Symbol\Models\Timestamp;
@@ -20,10 +17,7 @@ use SymbolSdk\Symbol\Models\UnresolvedMosaicId;
 use SymbolSdk\Symbol\Models\Amount;
 use SymbolSdk\Symbol\Models\UnresolvedAddress;
 use SymbolSdk\Symbol\Address;
-use SymbolSdk\Symbol\Verifier;
 
-use SymbolRestClient\Api\NodeRoutesApi;
-use SymbolRestClient\Api\NetworkRoutesApi;
 use SymbolRestClient\Api\TransactionRoutesApi;
 use SymbolRestClient\Api\TransactionStatusRoutesApi;
 use SymbolRestClient\Configuration;

@@ -285,7 +285,7 @@ class SimpleTransferTransactionForm extends FormBase {
       // メッセージを平文で送信する場合は、そのまま指定します。メッセージはUTF-8 エンコー
       // ディングされるため、バイナリデータを送信する場合は、UTF-8 エンコードされたバイナリデー
       // タを指定します。
-      $messageData = '\0'.$message;
+      $messageData = "\0".$message;
       //$messageData = $message;
       \Drupal::logger('qls_ss4')->notice('<pre>@object</pre>', ['@object' => print_r($messageData, TRUE)]);  
 

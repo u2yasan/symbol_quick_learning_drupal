@@ -84,6 +84,8 @@ services:
 #    - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
     - drupal:/var/www/html
+    # extra_hosts:
+    # - "quicklearningsymbol.localhost:127.0.0.1" # ホスト名を明示的に解決
     labels:
     - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 

@@ -5,6 +5,8 @@ services:
       PHP_FPM_CLEAR_ENV: "no"
     volumes:
     - ./codebase:/var/www/html
+#    extra_hosts:
+#    - "quicklearningsymbol.localhost:127.0.0.1"
 
   crond:
     image: wodby/drupal:$DRUPAL_TAG

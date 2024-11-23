@@ -1,0 +1,16 @@
+name: qls_ss5
+type: module
+description: Quick Learning Symbol Section 5
+package: Symbol Example modules
+core_version_requirement: ^10.3 || ^11.0
+configure: qls_ss5.description
+dependencies:
+  # - drupal:node
+  # - views:views
+  - quicklearning_symbol:quicklearning_symbol
+  # - views_json_source:views_json_source
+  # - json_field:json_field
+
+version: '0.0.1'
+project: 'quicklearning_symbol'
+datestamp: 1731040780

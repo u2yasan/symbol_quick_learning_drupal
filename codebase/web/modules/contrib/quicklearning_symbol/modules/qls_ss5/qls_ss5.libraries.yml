@@ -1,0 +1,6 @@
+json_table:
+  css:
+    theme:
+      css/json_table.css: {}
+  # js:
+  #   js/json_table.js: {}

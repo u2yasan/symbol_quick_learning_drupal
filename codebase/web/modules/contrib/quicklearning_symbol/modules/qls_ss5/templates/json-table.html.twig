@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      {% for header in headers %}
+        <th>{{ header }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+      <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.value }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

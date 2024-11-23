@@ -1,0 +1,72 @@
+mosaic_data_source:
+  table:
+    group: 'Mosaic Data'
+    provider: 'qls_ss5'
+    base:
+      title: 'Mosaic Data'
+      help: 'Mosaic data from the custom form.'
+      query_id: mosaic_data_source
+  fields:
+    mosaic_id:
+      title: 'Mosaic ID'
+      help: 'The ID of the mosaic.'
+      field:
+        id: 'standard'
+      alter:
+        alter_text: false
+        make_link: false
+        path: ''
+    supply:
+      title: 'Supply'
+      help: 'The supply of the mosaic.'
+      field:
+        id: 'numeric'
+      alter:
+        alter_text: false
+        make_link: false
+        path: ''
+    owner_address:
+      title: 'Owner Address'
+      help: 'The address of the mosaic owner.'
+      field:
+        id: 'standard'
+      alter:
+        alter_text: false
+        make_link: false
+        path: ''
+    divisibility:
+      title: 'Divisibility'
+      help: 'The divisibility of the mosaic.'
+      field:
+        id: 'numeric'
+      alter:
+        alter_text: false
+        make_link: false
+        path: ''
+    flags:
+      title: 'Flags'
+      help: 'The flags of the mosaic.'
+      field:
+        id: 'numeric'
+      alter:
+        alter_text: false
+        make_link: false
+        path: ''
+    duration:
+      title: 'Duration'
+      help: 'The duration of the mosaic.'
+      field:
+        id: 'numeric'
+      alter:
+        alter_text: false
+        make_link: false
+        path: ''
+    start_height:
+      title: 'Start Height'
+      help: 'The start height of the mosaic.'
+      field:
+        id: 'numeric'
+      alter:
+        alter_text: false
+        make_link: false
+        path: ''

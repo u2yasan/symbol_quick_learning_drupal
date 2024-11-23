@@ -1,0 +1,8 @@
+services:
+  qls_ss5.symbol_account_service:
+    class: 'Drupal\qls_ss5\Service\SymbolAccountService'
+    arguments: ['@http_client']
+  qls_ss5.views.query.mosaic_data_source:
+    class: Drupal\qls_ss5\Plugin\views\query\MosaicDataSource
+    tags:
+      - { name: views.query, id: mosaic_data_source }

@@ -20,11 +20,13 @@
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
         "drupal/csp": "^2.1",
+        "drupal/devel": "^5.3",
         "drupal/examples": "^4.0",
         "drupal/json_field": "^1.4",
         "drupal/views_database_connector": "2.0.x-dev@dev",
         "drupal/views_json_source": "2.0.2",
         "drush/drush": "^13.3",
+        "kint-php/kint": "^6.0",
         "symbol-blockchain-community/symbol-rest-client": "^1.0",
         "symbol-blockchain-community/symbol-sdk": "^1.0"
     },

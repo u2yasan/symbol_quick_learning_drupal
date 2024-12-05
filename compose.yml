@@ -17,7 +17,7 @@ services:
     image: wodby/drupal-php:$PHP_TAG
     container_name: "${PROJECT_NAME}_php"
     environment:
-      PHP_MEMORY_LIMIT: 1024M
+      PHP_MEMORY_LIMIT: 2G
       # By default xdebug extension also disabled.
       PHP_EXTENSIONS_DISABLE: xhprof,spx
       PHP_MAIL_MIXED_LF_AND_CRLF: 'On'

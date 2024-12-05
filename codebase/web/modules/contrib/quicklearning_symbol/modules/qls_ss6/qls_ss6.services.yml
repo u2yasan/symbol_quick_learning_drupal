@@ -1,0 +1,7 @@
+services:
+  qls_ss6.symbol_account_service:
+    class: 'Drupal\qls_ss6\Service\SymbolAccountService'
+    arguments: ['@http_client']
+  qls_ss6.transaction_service:
+    class: 'Drupal\qls_ss6\Service\TransactionService'
+    arguments: ['@http_client']

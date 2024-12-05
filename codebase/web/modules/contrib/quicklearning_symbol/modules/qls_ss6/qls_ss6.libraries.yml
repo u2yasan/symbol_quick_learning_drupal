@@ -1,0 +1,18 @@
+create_namespace:
+  version: 0.1
+  js:
+    # /modules/contrib/quicklearning_symbol/modules/qls_ss6/js/bundle.web.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss6/js/env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss6/js/create_namespace.js: { type: external, attributes: { type: 'module' } }
+
+create_subnamespace:
+  version: 0.1
+  js:
+    /modules/contrib/quicklearning_symbol/modules/qls_ss6/js/env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss6/js/create_subnamespace.js: { type: external, attributes: { type: 'module' } }   
+
+link_namespace:
+  version: 0.1
+  js:
+    /modules/contrib/quicklearning_symbol/modules/qls_ss6/js/env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss6/js/link_namespace.js: { type: external, attributes: { type: 'module' } }         

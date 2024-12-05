@@ -248,10 +248,10 @@ class ListMosaicsForm extends FormBase {
     $network_type = $form_state->getValue('network_type');
     // ノードURLを設定
     if ($network_type === 'testnet') {
-      $networkType = new NetworkType(NetworkType::TESTNET);
+      // $networkType = new NetworkType(NetworkType::TESTNET);
       $node_url = 'http://sym-test-03.opening-line.jp:3000';
     } elseif ($network_type === 'mainnet') {
-      $networkType = new NetworkType(NetworkType::MAINNET);
+      // $networkType = new NetworkType(NetworkType::MAINNET);
       $node_url = 'http://sym-main-03.opening-line.jp:3000';
     }
     // SymbolFacadeを使って新しいアカウントを作成
@@ -277,9 +277,9 @@ class ListMosaicsForm extends FormBase {
       $mocaisInfo[] = $mosaicApiInstance->getMosaic($mosaic->getId());
       
     }
-    \Drupal::logger('qls_ss5')->notice('<pre>@object</pre>', ['@object' => print_r($mocaisInfo, TRUE)]);
+    // \Drupal::logger('qls_ss5')->notice('<pre>@object</pre>', ['@object' => print_r($mocaisInfo, TRUE)]);
     $flattenedData = $this->flattenMosaicData($mocaisInfo);
-    \Drupal::logger('qls_ss5')->notice('<pre>@object</pre>', ['@object' => print_r($flattenedData, TRUE)]); 
+    // \Drupal::logger('qls_ss5')->notice('<pre>@object</pre>', ['@object' => print_r($flattenedData, TRUE)]); 
     // \Drupal::state()->set('mosaic_flattened_data', $flattenedData); 
     // // セッションサービスを取得
     // $session = \Drupal::service('session');

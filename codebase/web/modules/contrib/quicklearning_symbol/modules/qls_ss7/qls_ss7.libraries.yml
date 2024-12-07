@@ -1,0 +1,25 @@
+metadata_account:
+  version: 0.1
+  js:
+    /modules/contrib/quicklearning_symbol/js/bundle.web.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/js/test.env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss7/js/metadata_account.js: { type: external, attributes: { type: 'module' } }
+metadata_mosaic:
+  version: 0.1
+  js:
+    /modules/contrib/quicklearning_symbol/js/bundle.web.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/js/test.env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss7/js/metadata_mosaic.js: { type: external, attributes: { type: 'module' } }   
+metadata_namespace:
+  version: 0.1
+  js:
+    /modules/contrib/quicklearning_symbol/js/bundle.web.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/js/test.env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss7/js/metadata_mosaic.js: { type: external, attributes: { type: 'module' } } 
+
+list_metadata:
+  version: 0.1
+  js:
+    /modules/contrib/quicklearning_symbol/js/bundle.web.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/js/test.env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss7/js/list_metadata.js: { type: external, attributes: { type: 'module' } }  

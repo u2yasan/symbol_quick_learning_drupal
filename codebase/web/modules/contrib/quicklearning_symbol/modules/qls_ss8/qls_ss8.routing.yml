@@ -1,0 +1,43 @@
+# This routing.yml file makes both the fapi example description page and the
+# included sample forms available at specific URL's on your site. A route
+# maps a URL path to a controller. For page controllers it defines the
+# function or method that will be called when the page is accessed.  For form
+# controllers the content is determined by the buildForm method defined by the
+# form controller implementation.
+
+# Access to these paths is restricted to users with the permission
+# 'access content'. This is notated as _permission: 'access content'.
+
+# Menu items corresponding to these URLs are defined separately in the
+# form_api_example.links.menu.yml file.
+qls_ss8.description:
+  path: '/quicklearning_symbol/qls_ss8'
+  defaults:
+    _controller: '\Drupal\qls_ss8\Controller\Page::description'
+    _title: 'Qucik Learning Symbol Section 8'
+  requirements:
+    _permission: 'access content'
+
+qls_ss8.hash_lock_form:
+  path: '/quicklearning_symbol/qls_ss8/hash_lock_form'
+  defaults:
+    _form: '\Drupal\qls_ss8\Form\HashLockForm'
+    _title: 'Qucik Learning Symbol Section 8'
+  requirements:
+    _permission: 'access content'
+
+qls_ss8.secret_lock_form:
+  path: '/quicklearning_symbol/qls_ss8/secret_lock_form'
+  defaults:
+    _form: '\Drupal\qls_ss8\Form\SecretLockForm'
+    _title: 'Qucik Learning Symbol Section 8'
+  requirements:
+    _permission: 'access content'
+
+qls_ss8.secret_proof_form:
+  path: '/quicklearning_symbol/qls_ss8/secret_proof_form'
+  defaults:
+    _form: '\Drupal\qls_ss8\Form\SecretProofForm'
+    _title: 'Qucik Learning Symbol Section 8'
+  requirements:
+    _permission: 'access content'

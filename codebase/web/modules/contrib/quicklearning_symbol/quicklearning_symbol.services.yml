@@ -1,0 +1,4 @@
+services:
+  quicklearning_symbol.account_service:
+    class: Drupal\quicklearning_symbol\Service\AccountService
+    arguments: ['@http_client']

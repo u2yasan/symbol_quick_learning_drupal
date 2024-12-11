@@ -1,0 +1,6 @@
+# Define default links for this module.
+qls_ss8.description:
+  title: qls_ss8 Examples
+  description: Qucik Learning Symbol Section 8 examples.
+  route_name: qls_ss8.description
+  expanded: TRUE

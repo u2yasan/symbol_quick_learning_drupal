@@ -1,0 +1,12 @@
+hash_lock:
+  version: 0.1
+  js:
+    /modules/contrib/quicklearning_symbol/js/bundle.web.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/js/test.env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss8/js/hash_lock.js: { type: external, attributes: { type: 'module' } }
+secret_lock:
+  version: 0.1
+  js:
+    /modules/contrib/quicklearning_symbol/js/bundle.web.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/js/test.env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss8/js/secret_lock.js: { type: external, attributes: { type: 'module' } }    

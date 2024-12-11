@@ -1,0 +1,9 @@
+{
+  "name": "drupal/quicklearning_symbol/qls_ss8",
+  "description": "Qucik Learning Symbol for Drupal Section8.",
+  "type": "drupal-module",
+  "require": {
+    "symfony/polyfill-php70": "^1.31"
+  },
+  "license": "GPL-2.0-or-later"
+}

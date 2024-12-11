@@ -1,0 +1,12 @@
+name: qls_ss8
+type: module
+description: Quick Learning Symbol Section 8
+package: Symbol Example modules
+core_version_requirement: ^10.3 || ^11.0
+configure: qls_ss8.description
+dependencies:
+  - quicklearning_symbol:quicklearning_symbol
+
+version: '0.0.1'
+project: 'quicklearning_symbol'
+datestamp: 1731040780

@@ -10,6 +10,7 @@ Description text for Section 8.
 {% set qls_ss8_hash_lock_form = path('qls_ss8.hash_lock_form') %}
 {% set qls_ss8_secret_lock_form = path('qls_ss8.secret_lock_form') %}
 {% set qls_ss8_secret_proof_form = path('qls_ss8.secret_proof_form') %}
+{% set qls_ss8_confirm_receipt_form = path('qls_ss8.confirm_receipt_form') %}
 
 {% trans %}
 <h2>第8 章 ロック</h2>
@@ -93,7 +94,7 @@ LockHashAlgorithm は以下の通りです。
 解除用キーワードを使用してロック解除します。Bob は事前に解除用キーワードを入手しておく必要があります。
 </p>
 <p>
-承認結果を確認します。
+<a href={{ qls_ss8_confirm_receipt_form }}>承認結果を確認します。</a>
 </p>
 <p>
 SecretProofTransaction にはモザイクの受信量の情報は含まれていません。

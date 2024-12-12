@@ -41,3 +41,11 @@ qls_ss8.secret_proof_form:
     _title: 'Qucik Learning Symbol Section 8'
   requirements:
     _permission: 'access content'
+
+qls_ss8.confirm_receipt_form:
+  path: '/quicklearning_symbol/qls_ss8/confirm_receipt_form'
+  defaults:
+    _form: '\Drupal\qls_ss8\Form\ConfirmReceiptForm'
+    _title: 'Qucik Learning Symbol Section 8'
+  requirements:
+    _permission: 'access content'

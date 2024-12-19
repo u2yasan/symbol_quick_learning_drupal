@@ -29,7 +29,7 @@ class AccountService {
    * @param string $address
    *   アカウントのアドレス
    *
-   * @return object
+   * @return array|null
    *   アカウント情報
    */
   public function getAccountInfo($node_url, $address) {
@@ -40,9 +40,20 @@ class AccountService {
 
     // アカウント情報を取得
     try {
-      $accountInfoJson = $accountApi->getAccountInfo($address);
-      $accountInfo = json_decode($accountInfoJson, true);
-      return $accountInfo['account'];
+      $accountInfo = $accountApi->getAccountInfo($address);
+      return $accountInfo;
+
+      // $response = $accountApi->getAccountInfo($address);
+      // $accountInfoJson = (string) $response->getBody();
+
+      // \Drupal::logger('quicklearning_symbol')->info('Account Info JSON: @accountInfoJson', ['@accountInfoJson' => $accountInfoJson]);
+      // $accountInfo = json_decode($accountInfoJson, true);
+      // if (json_last_error() !== JSON_ERROR_NONE) {
+      //   \Drupal::logger('quicklearning_symbol')->error('JSON decode error: @error', ['@error' => json_last_error_msg()]);
+      //   return NULL;
+      // }
+      // \Drupal::logger('quicklearning_symbol')->info('Account Info: @accountInfo', ['@accountInfo' => $accountInfo]);
+      // return $accountInfo['account'];
     } catch (\Exception $e) {
       \Drupal::logger('quicklearning_symbol')->error('Failed to get account info: @message', ['@message' => $e->getMessage()]);
       return NULL;

@@ -1,0 +1,75 @@
+# This routing.yml file makes both the fapi example description page and the
+# included sample forms available at specific URL's on your site. A route
+# maps a URL path to a controller. For page controllers it defines the
+# function or method that will be called when the page is accessed.  For form
+# controllers the content is determined by the buildForm method defined by the
+# form controller implementation.
+
+# Access to these paths is restricted to users with the permission
+# 'access content'. This is notated as _permission: 'access content'.
+
+# Menu items corresponding to these URLs are defined separately in the
+# form_api_example.links.menu.yml file.
+qls_ss9.description:
+  path: '/quicklearning_symbol/qls_ss9'
+  defaults:
+    _controller: '\Drupal\qls_ss9\Controller\Page::description'
+    _title: 'Qucik Learning Symbol Section 9'
+  requirements:
+    _permission: 'access content'
+
+qls_ss9.settings:
+  path: '/admin/config/qls_ss9/settings'
+  defaults:
+    _form: '\Drupal\qls_ss9\Form\SettingsForm'
+    _title: 'QLS SS9 Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+qls_ss9.multi_sig_form:
+  path: '/admin/config/qls_ss9/multi_sig_form'
+  defaults:
+    _form: '\Drupal\qls_ss9\Form\MultiSigForm'
+    _title: 'QLS SS9 Multi Signature Form'
+  requirements:
+    _permission: 'access content'
+
+qls_ss9.multi_sig_actx_form:
+  path: '/admin/config/qls_ss9/multi_sig_actx_form'
+  defaults:
+    _form: '\Drupal\qls_ss9\Form\MultiSigACTxForm'
+    _title: 'QLS SS9 Multi Signature Aggregate Complete Transaction Form'
+  requirements:
+    _permission: 'access content'    
+
+qls_ss9.multi_sig_abtx_form:
+  path: '/admin/config/qls_ss9/multi_sig_abtx_form'
+  defaults:
+    _form: '\Drupal\qls_ss9\Form\MultiSigABTxForm'
+    _title: 'QLS SS9 Multi Signature Aggregate Bounded Transaction Form'
+  requirements:
+    _permission: 'access content'  
+
+qls_ss9.multi_sig_cosig_form:
+  path: '/admin/config/qls_ss9/multi_sig_cosig_form'
+  defaults:
+    _form: '\Drupal\qls_ss9\Form\MultiSigCosigForm'
+    _title: 'QLS SS9 Multi Signature Co-Signature Transaction Form'
+  requirements:
+    _permission: 'access content'      
+
+qls_ss9.multi_sig_confirm_form:
+  path: '/admin/config/qls_ss9/multi_sig_confirm_form'
+  defaults:
+    _form: '\Drupal\qls_ss9\Form\MultiSigConfirmForm'
+    _title: 'QLS SS9 Multi Signature Confirm Transaction Form'
+  requirements:
+    _permission: 'access content'          
+
+qls_ss9.multi_sig_modify_form:
+  path: '/admin/config/qls_ss9/multi_sig_modify_form'
+  defaults:
+    _form: '\Drupal\qls_ss9\Form\MultiSigModifyForm'
+    _title: 'QLS SS9 Multi Signature Modify Form'
+  requirements:
+    _permission: 'access content'      

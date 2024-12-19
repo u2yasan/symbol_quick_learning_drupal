@@ -177,7 +177,7 @@ class HashLockForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $page_values = $form_state->get('page_values');
-    \Drupal::logger('qls_ss8')->debug('submitForm: @form_state', ['@form_state' => print_r($page_values, TRUE)]);
+    // \Drupal::logger('qls_ss8')->debug('submitForm: @form_state', ['@form_state' => print_r($page_values, TRUE)]);
    
 
     // $this->messenger()->addMessage($this->t('The form has been submitted. name="@first @last", year of birth=@year_of_birth', [
@@ -238,7 +238,8 @@ class HashLockForm extends FormBase {
       $this->messenger()->addMessage($this->t('Cosignature successfully announced: @result', ['@result' => $result]));
 
     } catch (Exception $e) {
-      echo 'Exception when calling TransactionRoutesApi->announceTransaction: ', $e->getMessage(), PHP_EOL;
+      \Drupal::logger('qls_ss8')->error('Transaction Failed: @message', ['@message' => $e->getMessage()]);
+      // echo 'Exception when calling TransactionRoutesApi->announceTransaction: ', $e->getMessage(), PHP_EOL;
     }
   }
 

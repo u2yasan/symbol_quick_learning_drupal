@@ -98,5 +98,6 @@ function _quicklearning_symbol_toolbar_routes() {
     'qls_ss7' => 'qls_ss7.description',
     'qls_ss8' => 'qls_ss8.description',
     'qls_ss9' => 'qls_ss9.description',
+    'qls_ss10' => 'qls_ss10.description',
   ];
 }

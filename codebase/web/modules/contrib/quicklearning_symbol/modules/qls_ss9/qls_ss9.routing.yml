@@ -27,7 +27,7 @@ qls_ss9.settings:
     _permission: 'administer site configuration'
 
 qls_ss9.multi_sig_form:
-  path: '/admin/config/qls_ss9/multi_sig_form'
+  path: '/quicklearning_symbol/qls_ss9/multi_sig_form'
   defaults:
     _form: '\Drupal\qls_ss9\Form\MultiSigForm'
     _title: 'QLS SS9 Multi Signature Form'
@@ -35,7 +35,7 @@ qls_ss9.multi_sig_form:
     _permission: 'access content'
 
 qls_ss9.multi_sig_actx_form:
-  path: '/admin/config/qls_ss9/multi_sig_actx_form'
+  path: '/quicklearning_symbol/qls_ss9/multi_sig_actx_form'
   defaults:
     _form: '\Drupal\qls_ss9\Form\MultiSigACTxForm'
     _title: 'QLS SS9 Multi Signature Aggregate Complete Transaction Form'
@@ -43,7 +43,7 @@ qls_ss9.multi_sig_actx_form:
     _permission: 'access content'    
 
 qls_ss9.multi_sig_abtx_form:
-  path: '/admin/config/qls_ss9/multi_sig_abtx_form'
+  path: '/quicklearning_symbol/qls_ss9/multi_sig_abtx_form'
   defaults:
     _form: '\Drupal\qls_ss9\Form\MultiSigABTxForm'
     _title: 'QLS SS9 Multi Signature Aggregate Bounded Transaction Form'
@@ -51,7 +51,7 @@ qls_ss9.multi_sig_abtx_form:
     _permission: 'access content'  
 
 qls_ss9.multi_sig_cosig_form:
-  path: '/admin/config/qls_ss9/multi_sig_cosig_form'
+  path: '/quicklearning_symbol/qls_ss9/multi_sig_cosig_form'
   defaults:
     _form: '\Drupal\qls_ss9\Form\MultiSigCosigForm'
     _title: 'QLS SS9 Multi Signature Co-Signature Transaction Form'
@@ -59,7 +59,7 @@ qls_ss9.multi_sig_cosig_form:
     _permission: 'access content'      
 
 qls_ss9.multi_sig_confirm_form:
-  path: '/admin/config/qls_ss9/multi_sig_confirm_form'
+  path: '/quicklearning_symbol/qls_ss9/multi_sig_confirm_form'
   defaults:
     _form: '\Drupal\qls_ss9\Form\MultiSigConfirmForm'
     _title: 'QLS SS9 Multi Signature Confirm Transaction Form'
@@ -67,7 +67,7 @@ qls_ss9.multi_sig_confirm_form:
     _permission: 'access content'          
 
 qls_ss9.multi_sig_modify_form:
-  path: '/admin/config/qls_ss9/multi_sig_modify_form'
+  path: '/quicklearning_symbol/qls_ss9/multi_sig_modify_form'
   defaults:
     _form: '\Drupal\qls_ss9\Form\MultiSigModifyForm'
     _title: 'QLS SS9 Multi Signature Modify Form'

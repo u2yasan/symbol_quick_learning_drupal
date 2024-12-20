@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Defines installation functions for secp256k1.
+ */
+
+/**
+ * Implements hook_requirements().
+ *
+ * Verifies that module requirements are met.
+ */
+function secp256k1_requirements(string $phase): array {
+  $requirements = [];
+
+  if ($phase === 'install') {
+    // Verify that the phpseclib PHP library is available.
+    if (!class_exists('\phpseclib3\Crypt\EC')) {
+      $requirements['phpseclib3_library'] = [
+        'description' => t('secp256k1 requires the phpseclib3 PHP library.'),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+    }
+
+    if (!empty($requirements)) {
+      $requirements['secp256k1_install_errors'] = [
+        'description' => t("secp256k1 could not be installed due to missing requirements. See the module's documentation for more information."),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+    }
+  }
+
+  return $requirements;
+}

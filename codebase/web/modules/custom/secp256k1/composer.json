@@ -1,0 +1,11 @@
+{
+  "name": "secp256k1",
+  "description": "Allows data to be encrypted and decrypted using ECDSA（secp256k1）.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "require": {
+    "php": ">=8.1",
+    "drupal/key": "^1.0",
+    "drupal/encrypt": "^3.2"
+  }
+}

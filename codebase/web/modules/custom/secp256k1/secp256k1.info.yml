@@ -1,0 +1,12 @@
+name: secp256k1
+description: "Allows data to be encrypted and decrypted using the kornrunner/php-secp256k1 PHP extension."
+core_version_requirement: ^10.3 || ^11
+type: module
+package: Security
+dependencies:
+  - encrypt:encrypt
+
+# Information added by Drupal.org packaging script on 2024-10-01
+version: '0.0.1'
+project: 'secp256k1'
+datestamp: 1734076266

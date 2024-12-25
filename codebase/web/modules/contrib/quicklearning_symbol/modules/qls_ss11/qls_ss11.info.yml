@@ -1,0 +1,12 @@
+name: qls_ss11
+type: module
+description: Quick Learning Symbol Section 11
+package: Symbol Example modules
+core_version_requirement: ^10.3 || ^11.0
+configure: qls_ss11.settings
+dependencies:
+  - quicklearning_symbol:quicklearning_symbol
+  - drupal:config
+version: '0.0.1'
+project: 'quicklearning_symbol'
+datestamp: 1731040780

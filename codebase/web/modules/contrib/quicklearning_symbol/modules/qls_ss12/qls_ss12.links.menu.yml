@@ -1,0 +1,6 @@
+# Define default links for this module.
+qls_ss12.description:
+  title: qls_ss12 Examples
+  description: Qucik Learning Symbol Section 12 examples.
+  route_name: qls_ss12.description
+  expanded: TRUE

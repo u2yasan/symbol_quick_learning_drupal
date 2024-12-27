@@ -1,0 +1,73 @@
+{#
+
+Description text for Section 9.
+
+#}
+
+{{ attach_library('core/drupal.dialog.ajax') }}
+
+{% set qls_ss12_offline_sig_tx_form = path('qls_ss12.offline_sig_tx_form') %}
+{% set qls_ss12_offline_cosig_tx_form = path('qls_ss12.offline_cosig_tx_form') %}
+{% set qls_ss12_offline_cosig_announce_tx_form = path('qls_ss12.offline_cosig_announce_tx_form') %}
+
+{% trans %}
+<h2>第 12 章 オフライン署名</h2>
+
+<p>
+ロック機構の章で、アナウンスしたトランザクションをハッシュ値指定でロックして、
+複数の署名（オンライン署名）を集めるアグリゲートトランザクションを紹介しました。
+この章では、トランザクションを事前に署名を集めてノードにアナウンスするオフライン署名について説明します。
+</p>
+
+<h4>12.0.1 手順</h4>
+<p>
+Alice が起案者となりトランザクションを作成し、署名します。次にBob が署名して
+Alice に返します。最後にAlice がトランザクションを結合してネットワークにアナウンスします。
+</p>
+
+<h3><a href={{ qls_ss12_offline_sig_tx_form }}>12.1 トランザクション作成</a></h3>
+<p>
+署名を行い、signedHash,signedPayload を出力します。signedPayload をBob に渡して署名を促します。
+</p>
+
+<h3><a href={{ qls_ss12_offline_cosig_tx_form }}>12.2 Bob による連署</a></h3>
+<p>
+Alice から受け取ったsignedPayload でトランザクションを復元します。
+</p>
+<p>
+念のため、Alice がすでに署名したトランザクション（ペイロード）かどうかを検証します。
+</p>
+<p>
+ペイロードがsigner、つまりAlice によって署名されたものであることが確認できました。次にBob が連署します。
+</p>
+
+<p>
+CosignatureTransaction で署名を行い、bobSignedTxSignature,bobSignedTxSignerPublicKeyを出力しAliceに返却します。
+Bob が全ての署名を揃えられる場合は、Alice に返却しなくてもBob がアナウンスすることも可能です。
+</p>
+
+<h3><a href={{ qls_ss12_offline_cosig_announce_tx_form }}>12.3 Alice によるアナウンス</a></h3>
+
+<p>
+Alice はBob からbobSignedTxSignature,bobSignedTxSignerPublicKey を受け取ります。
+また事前にAlice 自身で作成したsignedPayload を用意します。
+</p>
+
+<h3>12.4 現場で使えるヒント</h3>
+<h4>12.4.1 マーケットプレイスレス</h4>
+
+<p>
+ボンデッドトランザクションと異なりハッシュロックのための手数料(10XYM) を気にする必要がありません。
+ペイロードを共有できる場が存在する場合、
+売り手は考えられるすべての買い手候補に対してペイロードを作成して交渉開始を待つことができます。
+（複数のトランザクションが個別に実行されないように、
+1 つしか存在しない領収書NFT をアグリゲートトランザクションに混ぜ込むなどして排他制御をしてください）。
+この交渉に専用のマーケットプレイスを構築する必要はありません。
+SNS のタイムラインをマーケットプレイスにしたり、
+必要に応じて任意の時間や空間でワンタイムマーケットプレイスを展開することができます。
+ただ、オフラインで署名を交換するため、なりすましのハッシュ署名要求には気を付けましょう。
+（必ず検証可能なペイロードからハッシュを生成して署名するようにしてください）
+</p>
+
+
+{% endtrans %}

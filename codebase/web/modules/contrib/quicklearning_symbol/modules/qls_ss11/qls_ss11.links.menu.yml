@@ -1,5 +1,5 @@
 # Define default links for this module.
-qls_ss8.description:
+qls_ss11.description:
   title: qls_ss11 Examples
   description: Qucik Learning Symbol Section 11 examples.
   route_name: qls_ss11.description

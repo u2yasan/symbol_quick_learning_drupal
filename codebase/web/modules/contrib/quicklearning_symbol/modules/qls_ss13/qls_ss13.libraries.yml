@@ -1,0 +1,7 @@
+settings:
+  version: 0.1
+  js:
+    # /modules/contrib/quicklearning_symbol/js/bundle.web.js: { type: external, attributes: { type: 'module' } }
+    # /modules/contrib/quicklearning_symbol/js/test.env.js: { type: external, attributes: { type: 'module' } }
+    /modules/contrib/quicklearning_symbol/modules/qls_ss13/js/settings.js: { type: external, attributes: { type: 'module' } }
+

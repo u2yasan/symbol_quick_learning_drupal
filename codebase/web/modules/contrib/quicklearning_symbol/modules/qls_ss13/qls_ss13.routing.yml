@@ -1,0 +1,67 @@
+# This routing.yml file makes both the fapi example description page and the
+# included sample forms available at specific URL's on your site. A route
+# maps a URL path to a controller. For page controllers it defines the
+# function or method that will be called when the page is accessed.  For form
+# controllers the content is determined by the buildForm method defined by the
+# form controller implementation.
+
+# Access to these paths is restricted to users with the permission
+# 'access content'. This is notated as _permission: 'access content'.
+
+# Menu items corresponding to these URLs are defined separately in the
+# form_api_example.links.menu.yml file.
+qls_ss13.description:
+  path: '/quicklearning_symbol/qls_ss13'
+  defaults:
+    _controller: '\Drupal\qls_ss13\Controller\Page::description'
+    _title: 'Qucik Learning Symbol Section 13'
+  requirements:
+    _permission: 'access content'
+
+qls_ss13.settings:
+  path: '/admin/config/qls_ss13/settings'
+  defaults:
+    _form: '\Drupal\qls_ss13\Form\SettingsForm'
+    _title: 'QLS SS13 Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+qls_ss13.deserialize_payload_form:
+  path: '/quicklearning_symbol/qls_ss13/deserialize_payload_form'
+  defaults:
+    _form: '\Drupal\qls_ss13\Form\DeserializePayloadForm'
+    _title: 'QLS SS13 Deserialize Payload Form'
+  requirements:
+    _permission: 'access content'
+
+qls_ss13.verify_importance_block_form:
+  path: '/quicklearning_symbol/qls_ss13/verify_importance_block_form'
+  defaults:
+    _form: '\Drupal\qls_ss13\Form\VerifyImoprtanceBlockForm'
+    _title: 'QLS SS13 Verify Imoprtance Block Form'
+  requirements:
+    _permission: 'access content'
+    
+qls_ss13.verify_account_info_form:
+  path: '/quicklearning_symbol/qls_ss13/verify_account_info_form'
+  defaults:
+    _form: '\Drupal\qls_ss13\Form\VerifyAccountInfoForm'
+    _title: 'QLS SS13 Verify Account Info Form'
+  requirements:
+    _permission: 'access content'
+
+qls_ss13.verify_mosaic_metadata_form:
+  path: '/quicklearning_symbol/qls_ss13/verify_mosaic_metadata_form'
+  defaults:
+    _form: '\Drupal\qls_ss13\Form\VerifyMosaicMetadataForm'
+    _title: 'QLS SS13 Verify Mosaic Metadata Form'
+  requirements:
+    _permission: 'access content'    
+
+qls_ss13.verify_account_metadata_form:
+  path: '/quicklearning_symbol/qls_ss13/verify_account_metadata_form'
+  defaults:
+    _form: '\Drupal\qls_ss13\Form\VerifyAccountMetadataForm'
+    _title: 'QLS SS13 Verify Account Metadata Form'
+  requirements:
+    _permission: 'access content'    

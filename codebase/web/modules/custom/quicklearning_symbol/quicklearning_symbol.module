@@ -91,16 +91,16 @@ function quicklearning_symbol_toolbar() {
  */
 function _quicklearning_symbol_toolbar_routes() {
   return [
-    'qls_ss3' => 'qls_ss3.description',
-    'qls_ss4' => 'qls_ss4.description',
-    'qls_ss5' => 'qls_ss5.description',
-    'qls_ss6' => 'qls_ss6.description',
-    'qls_ss7' => 'qls_ss7.description',
-    'qls_ss8' => 'qls_ss8.description',
-    'qls_ss9' => 'qls_ss9.description',
-    'qls_ss10' => 'qls_ss10.description',
-    'qls_ss11' => 'qls_ss11.description',
-    'qls_ss12' => 'qls_ss12.description',
-    'qls_ss13' => 'qls_ss13.description',
+    'qls_sect3' => 'qls_sect3.description',
+    'qls_sect4' => 'qls_sect4.description',
+    'qls_sect5' => 'qls_sect5.description',
+    'qls_sect6' => 'qls_sect6.description',
+    'qls_sect7' => 'qls_sect7.description',
+    'qls_sect8' => 'qls_sect8.description',
+    'qls_sect9' => 'qls_sect9.description',
+    'qls_sect10' => 'qls_sect10.description',
+    'qls_sect11' => 'qls_sect11.description',
+    'qls_sect12' => 'qls_sect12.description',
+    'qls_sect13' => 'qls_sect13.description',
   ];
 }

@@ -1,10 +1,12 @@
 <?php
 
-namespace Drupal\qls_ss3\Form;
+namespace Drupal\qls_sect3\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use SymbolSdk\CryptoTypes\PrivateKey;
+
+use SymbolSdk\Symbol\Models\PublicKey;
+
 use SymbolSdk\Facade\SymbolFacade;
 
 /**
@@ -15,7 +17,7 @@ use SymbolSdk\Facade\SymbolFacade;
  *
  * @see \Drupal\Core\Form\FormBase
  */
-class FormTwo extends FormBase {
+class FormThree extends FormBase {
 
   /**
    * Build the simple form.
@@ -35,7 +37,7 @@ class FormTwo extends FormBase {
 
     $form['description'] = [
       '#type' => 'item',
-      '#markup' => $this->t('3.1.4 秘密鍵からアカウント生成'),
+      '#markup' => $this->t('3.1.5 公開鍵クラスの生成'),
     ];
 
     $form['network_type'] = [
@@ -50,9 +52,9 @@ class FormTwo extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['private_key'] = [
-      '#type' => 'password',
-      '#title' => $this->t('Private Key'),
+    $form['public_key'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Publick Key'),
       '#description' => $this->t('64文字（16進数）'),
       '#required' => TRUE,
     ];
@@ -67,7 +69,7 @@ class FormTwo extends FormBase {
     // Add a submit button that handles the submission of the form.
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Generate From Private Key'),
+      '#value' => $this->t('Generate Public Account From Publick Key'),
     ];
 
     return $form;
@@ -84,7 +86,7 @@ class FormTwo extends FormBase {
    *   The unique ID of the form defined by this class.
    */
   public function getFormId() {
-    return 'form_two';
+    return 'form_three';
   }
 
   /**
@@ -99,10 +101,10 @@ class FormTwo extends FormBase {
    *   Object describing the current state of the form.
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $pvtKey = $form_state->getValue('private_key');
-    if (strlen($pvtKey) !=  64) {
-      // Set an error for the form element with a key of "title".
-      $form_state->setErrorByName('private_key', $this->t('The private_key must be 64 characters long.'));
+    $pubKey = $form_state->getValue('public_key');
+    if (strlen($pubKey) !=  64) {
+      // Set an error for the form element with a key of "public_key".
+      $form_state->setErrorByName('publick_key', $this->t('The publick key must be 64 characters long.'));
     }
   }
 
@@ -122,22 +124,23 @@ class FormTwo extends FormBase {
      * with the title.
      */
     $network_type = $form_state->getValue('network_type');
-    $pvtkey = $form_state->getValue('private_key');
+    $pubkey = $form_state->getValue('public_key');
 
     // SymbolFacadeを使って新しいアカウントを作成
     $facade = new SymbolFacade($network_type);
 
-    //3.1.4 秘密鍵からアカウント生成
-    $aliceKey = $facade->createAccount(new PrivateKey($pvtkey));
-    $aliceRawAddress = $aliceKey->address;
+    //3.1.5 公開鍵クラスの生成
+    $alicePublicAccount = $facade->createPublicAccount(new PublicKey($pubkey));
+   
+    $alicePubKey = substr($alicePublicAccount->publicKey, 2, 66);
 
     // 出力例
     // /admin/reports/dblog でログを確認
-    //\Drupal::logger('qls_ss3')->notice('<pre>@object</pre>', ['@object' => print_r($aliceKey, TRUE)]);
+    //\Drupal::logger('qls_sect3')->notice('<pre>@object</pre>', ['@object' => print_r($alicePublicAccount, TRUE)]);
    
 
     $this->messenger()->addMessage($this->t('You specified a network_type of %network_type.', ['%network_type' => $network_type]));
-    $this->messenger()->addMessage($this->t('Account created from Private Key! RawAddress: @rawAddress', ['@rawAddress' => $aliceRawAddress]));
+    $this->messenger()->addMessage($this->t('Public Key: @alicePubKey', ['@alicePubKey' => $alicePubKey]));
   }
 
 }

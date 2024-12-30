@@ -1,0 +1,47 @@
+qls_sect3.description:
+  path: '/quicklearning_symbol/qls_sect3'
+  defaults:
+    _controller: '\Drupal\qls_sect3\Controller\Page::description'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content'
+
+qls_sect3.form_one:
+  path: '/quicklearning_symbol/qls_sect3/form_one'
+  defaults:
+    _form: '\Drupal\qls_sect3\Form\FormOne'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content'
+
+qls_sect3.form_two:
+  path: '/quicklearning_symbol/qls_sect3/form_two'
+  defaults:
+    _form: '\Drupal\qls_sect3\Form\FormTwo'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content'    
+
+qls_sect3.form_three:
+  path: '/quicklearning_symbol/qls_sect3/form_three'
+  defaults:
+    _form: '\Drupal\qls_sect3\Form\FormThree'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content' 
+
+qls_sect3.form_four:
+  path: '/quicklearning_symbol/qls_sect3/form_four'
+  defaults:
+    _form: '\Drupal\qls_sect3\Form\FormFour'
+    _title: 'Qucik Learning Symbol Section 3'
+  requirements:
+    _permission: 'access content' 
+
+qls_sect3.account_info:
+  path: '/quicklearning_symbol/qls_sect3/account-info'
+  defaults:
+    _controller: '\Drupal\qls_sect3\Controller\SymbolAccountController::accountInfo'
+    _title: 'Qucik Learning Symbol Section 3 Account Information'
+  requirements:
+    _permission: 'access content'    

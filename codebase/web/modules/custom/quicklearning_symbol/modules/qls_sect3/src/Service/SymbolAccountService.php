@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\qls_ss3\Service;
+namespace Drupal\qls_sect3\Service;
 
 use SymbolRestClient\Api\AccountRoutesApi;
 use SymbolRestClient\Configuration;
@@ -44,7 +44,7 @@ class SymbolAccountService {
       $accountInfo = $accountApi->getAccountInfo($address);
       return $accountInfo;
     } catch (\Exception $e) {
-      \Drupal::logger('qls_ss3')->error('Failed to get account info: @message', ['@message' => $e->getMessage()]);
+      \Drupal::logger('qls_sect3')->error('Failed to get account info: @message', ['@message' => $e->getMessage()]);
       return NULL;
     }
   }

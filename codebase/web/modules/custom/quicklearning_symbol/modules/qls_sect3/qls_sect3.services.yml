@@ -1,0 +1,4 @@
+services:
+  qls_sect3.symbol_account_service:
+    class: 'Drupal\qls_sect3\Service\SymbolAccountService'
+    arguments: ['@http_client']

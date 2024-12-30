@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\qls_ss3\Controller;
+namespace Drupal\qls_sect3\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -27,7 +27,7 @@ class SymbolAccountController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('qls_ss3.symbol_account_service')
+      $container->get('qls_sect3.symbol_account_service')
     );
   }
 

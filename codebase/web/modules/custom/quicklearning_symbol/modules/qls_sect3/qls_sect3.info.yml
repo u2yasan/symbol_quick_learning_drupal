@@ -1,11 +1,10 @@
-name: qls_ss3
+name: qls_sect3
 type: module
 description: Quick Learning Symbol Section 3
 package: Symbol Example modules
 core_version_requirement: ^10.3 || ^11.0
-configure: qls_ss3.description
+configure: qls_sect3.description
 dependencies:
-  # - drupal:node
   - quicklearning_symbol:quicklearning_symbol
 
 version: '0.0.1'

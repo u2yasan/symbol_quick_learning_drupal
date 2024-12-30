@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\qls_ss3\Controller;
+namespace Drupal\qls_sect3\Controller;
 
 use Drupal\quicklearning_symbol\Utility\DescriptionTemplateTrait;
 
@@ -15,7 +15,7 @@ class Page {
    * {@inheritdoc}
    */
   public function getModuleName() {
-    return 'qls_ss3';
+    return 'qls_sect3';
   }
 
 }

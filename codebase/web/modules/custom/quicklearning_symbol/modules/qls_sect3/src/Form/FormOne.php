@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\qls_ss3\Form;
+namespace Drupal\qls_sect3\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-use SymbolSdk\Symbol\Models\PublicKey;
+use SymbolSdk\CryptoTypes\PrivateKey;
 
 use SymbolSdk\Facade\SymbolFacade;
 
@@ -17,7 +17,7 @@ use SymbolSdk\Facade\SymbolFacade;
  *
  * @see \Drupal\Core\Form\FormBase
  */
-class FormThree extends FormBase {
+class FormOne extends FormBase {
 
   /**
    * Build the simple form.
@@ -37,7 +37,7 @@ class FormThree extends FormBase {
 
     $form['description'] = [
       '#type' => 'item',
-      '#markup' => $this->t('3.1.5 公開鍵クラスの生成'),
+      '#markup' => $this->t('3.1.1 新規生成 3.1.2 秘密鍵と公開鍵の導出 3.1.3 アドレスの導出'),
     ];
 
     $form['network_type'] = [
@@ -52,13 +52,6 @@ class FormThree extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['public_key'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Publick Key'),
-      '#description' => $this->t('64文字（16進数）'),
-      '#required' => TRUE,
-    ];
-
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
     // to the form. This is not required, but is convention.
@@ -69,7 +62,7 @@ class FormThree extends FormBase {
     // Add a submit button that handles the submission of the form.
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Generate Public Account From Publick Key'),
+      '#value' => $this->t('Generate'),
     ];
 
     return $form;
@@ -86,7 +79,7 @@ class FormThree extends FormBase {
    *   The unique ID of the form defined by this class.
    */
   public function getFormId() {
-    return 'form_three';
+    return 'form_one';
   }
 
   /**
@@ -100,13 +93,13 @@ class FormThree extends FormBase {
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   Object describing the current state of the form.
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    $pubKey = $form_state->getValue('public_key');
-    if (strlen($pubKey) !=  64) {
-      // Set an error for the form element with a key of "public_key".
-      $form_state->setErrorByName('publick_key', $this->t('The publick key must be 64 characters long.'));
-    }
-  }
+  // public function validateForm(array &$form, FormStateInterface $form_state) {
+  //   $title = $form_state->getValue('network_type');
+  //   if (strlen($title) < 5) {
+  //     // Set an error for the form element with a key of "title".
+  //     $form_state->setErrorByName('title', $this->t('The title must be at least 5 characters long.'));
+  //   }
+  // }
 
   /**
    * Implements a form submit handler.
@@ -124,23 +117,28 @@ class FormThree extends FormBase {
      * with the title.
      */
     $network_type = $form_state->getValue('network_type');
-    $pubkey = $form_state->getValue('public_key');
 
     // SymbolFacadeを使って新しいアカウントを作成
     $facade = new SymbolFacade($network_type);
 
-    //3.1.5 公開鍵クラスの生成
-    $alicePublicAccount = $facade->createPublicAccount(new PublicKey($pubkey));
-   
-    $alicePubKey = substr($alicePublicAccount->publicKey, 2, 66);
+    //3.1.1 新規生成
+    $aliceKey = $facade->createAccount(PrivateKey::random());
 
     // 出力例
     // /admin/reports/dblog でログを確認
-    //\Drupal::logger('qls_ss3')->notice('<pre>@object</pre>', ['@object' => print_r($alicePublicAccount, TRUE)]);
-   
+    //\Drupal::logger('qls_sect3')->notice('<pre>@object</pre>', ['@object' => print_r($aliceKey, TRUE)]);
+    
+
+    //3.1.2 秘密鍵と公開鍵の導出
+    $alicePubKey = $aliceKey->publicKey;
+    $alicePvtKey = $aliceKey->keyPair->privateKey();
+    //3.1.3 アドレスの導出
+    $aliceRawAddress = $aliceKey->address;
 
     $this->messenger()->addMessage($this->t('You specified a network_type of %network_type.', ['%network_type' => $network_type]));
-    $this->messenger()->addMessage($this->t('Public Key: @alicePubKey', ['@alicePubKey' => $alicePubKey]));
+    $this->messenger()->addMessage($this->t('New account created successfully! Public Key: @publicKey', ['@publicKey' => $alicePubKey]));
+    $this->messenger()->addMessage($this->t('New account created successfully! Private Key: @privateKey', ['@privateKey' => $alicePvtKey]));
+    $this->messenger()->addMessage($this->t('New account created successfully! Raw Address: @rawAddress', ['@rawAddress' => $aliceRawAddress]));
   }
 
 }

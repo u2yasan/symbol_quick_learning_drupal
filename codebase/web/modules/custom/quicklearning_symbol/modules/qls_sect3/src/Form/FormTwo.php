@@ -1,14 +1,11 @@
 <?php
 
-namespace Drupal\qls_ss3\Form;
+namespace Drupal\qls_sect3\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
-use SymbolSdk\Symbol\Address;
-
-use Drupal\qls_ss3\Service\SymbolAccountService;
+use SymbolSdk\CryptoTypes\PrivateKey;
+use SymbolSdk\Facade\SymbolFacade;
 
 /**
  * Implements the SimpleForm form controller.
@@ -18,30 +15,7 @@ use Drupal\qls_ss3\Service\SymbolAccountService;
  *
  * @see \Drupal\Core\Form\FormBase
  */
-class FormFour extends FormBase {
-
-  /**
-   * SymbolAccountServiceのインスタンス
-   *
-   * @var \Drupal\qls_ss3\Service\SymbolAccountService
-   */
-  protected $symbolAccountService;
-
-  /**
-   * コンストラクタでSymbolAccountServiceを注入
-   */
-  public function __construct(SymbolAccountService $symbol_account_service) {
-    $this->symbolAccountService = $symbol_account_service;
-  }
-
-  /**
-   * createメソッドでサービスコンテナから依存性を注入
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('qls_ss3.symbol_account_service')
-    );
-  }
+class FormTwo extends FormBase {
 
   /**
    * Build the simple form.
@@ -61,7 +35,7 @@ class FormFour extends FormBase {
 
     $form['description'] = [
       '#type' => 'item',
-      '#markup' => $this->t('3.3.1 所有モザイク一覧の取得'),
+      '#markup' => $this->t('3.1.4 秘密鍵からアカウント生成'),
     ];
 
     $form['network_type'] = [
@@ -76,10 +50,10 @@ class FormFour extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['address'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Address'),
-      '#description' => $this->t('39文字（16進数）'),
+    $form['private_key'] = [
+      '#type' => 'password',
+      '#title' => $this->t('Private Key'),
+      '#description' => $this->t('64文字（16進数）'),
       '#required' => TRUE,
     ];
 
@@ -93,7 +67,7 @@ class FormFour extends FormBase {
     // Add a submit button that handles the submission of the form.
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Get Account Info'),
+      '#value' => $this->t('Generate From Private Key'),
     ];
 
     return $form;
@@ -110,7 +84,7 @@ class FormFour extends FormBase {
    *   The unique ID of the form defined by this class.
    */
   public function getFormId() {
-    return 'form_four';
+    return 'form_two';
   }
 
   /**
@@ -125,10 +99,10 @@ class FormFour extends FormBase {
    *   Object describing the current state of the form.
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $address = $form_state->getValue('address');
-    if (strlen($address) !=  39) {
-      // Set an error for the form element with a key of "public_key".
-      $form_state->setErrorByName('address', $this->t('The address must be 39 characters long.'));
+    $pvtKey = $form_state->getValue('private_key');
+    if (strlen($pvtKey) !=  64) {
+      // Set an error for the form element with a key of "title".
+      $form_state->setErrorByName('private_key', $this->t('The private_key must be 64 characters long.'));
     }
   }
 
@@ -148,27 +122,22 @@ class FormFour extends FormBase {
      * with the title.
      */
     $network_type = $form_state->getValue('network_type');
-    $address = $form_state->getValue('address');
-    $address = new Address($address);
+    $pvtkey = $form_state->getValue('private_key');
 
-    // ノードURLを設定
-    if ($network_type === 'testnet') {
-      $node_url = 'http://sym-test-03.opening-line.jp:3000';
-    } elseif ($network_type === 'mainnet') {
-      $node_url = 'http://sym-main-03.opening-line.jp:3000';
-    }
-    // SymbolAccountServiceを使ってアカウント情報を取得
-    $account_info = $this->symbolAccountService->getAccountInfo($node_url, $address);
+    // SymbolFacadeを使って新しいアカウントを作成
+    $facade = new SymbolFacade($network_type);
 
-    if ($account_info) {
-      // JSON形式でアカウント情報を表示
-      $json_data = json_encode($account_info, JSON_PRETTY_PRINT);
-      \Drupal::messenger()->addMessage($this->t('Account information: <pre>@data</pre>', ['@data' => $json_data]));
-    }
-    else {
-      \Drupal::messenger()->addMessage($this->t('Failed to retrieve account information.'), 'error');
-    }
-    
+    //3.1.4 秘密鍵からアカウント生成
+    $aliceKey = $facade->createAccount(new PrivateKey($pvtkey));
+    $aliceRawAddress = $aliceKey->address;
+
+    // 出力例
+    // /admin/reports/dblog でログを確認
+    //\Drupal::logger('qls_sect3')->notice('<pre>@object</pre>', ['@object' => print_r($aliceKey, TRUE)]);
+   
+
+    $this->messenger()->addMessage($this->t('You specified a network_type of %network_type.', ['%network_type' => $network_type]));
+    $this->messenger()->addMessage($this->t('Account created from Private Key! RawAddress: @rawAddress', ['@rawAddress' => $aliceRawAddress]));
   }
 
 }
